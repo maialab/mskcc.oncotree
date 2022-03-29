@@ -1,0 +1,173 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# mskcc.oncotree
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of `{mskcc.oncotree}` is to facilitate access to the [OncoTree
+API](http://oncotree.mskcc.org/).
+
+The OncoTree is an open-source ontology that was developed at Memorial Sloan
+Kettering Cancer Center (MSK) for standardizing cancer type diagnosis from a
+clinical perspective by assigning each diagnosis a unique OncoTree code.
+
+Currently, the functionality provided is the retrieval of tumor types and the
+mapping of tumor type codes across a few tumor type classification
+systems.
+
+## Installation
+
+You can install the development version of `{mskcc.oncotree}` with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("maialab/mskcc.oncotree")
+```
+
+## OncoTree tumor types
+
+Get the tumor types defined by OncoTree in their latest release:
+
+```{r tumor_types}
+library(mskcc.oncotree)
+
+(tumor_types <- get_tumor_types())
+```
+
+The mapping to the corresponding tumor type identifier(s) in the Uniﬁed Medical
+Language System (UMLS) and in the National Cancer Institute (NCI) Thesaurus
+classification systems is provided in columns `umls_code` and `nci_code`.
+
+```{r mappings}
+tumor_types[c('oncotree_code', 'umls_code', 'nci_code')]
+```
+
+`umls_code` and `nci_code` are list-columns because the mapping can be
+one-to-many.
+
+If you want, you may convert these columns to type `character` by unnesting with
+`tidyr::unnest()`. This will have the side effect of creating more than one row
+per tumor type for cases where the mapping is one-to-many.
+
+```{r unnest}
+tumor_types[c('oncotree_code', 'umls_code')] %>%
+  tidyr::unnest(cols = 'umls_code', keep_empty = TRUE)
+```
+
+## OncoTree versions
+
+The data provided by OncoTree is versioned. You may list the released versions
+so far with `get_versions()`:
+
+```{r versions}
+get_versions()
+```
+
+The function `get_tumor_types()` accepts a release version, allowing to get data
+for past versions of OncoTree:
+
+```{r old_version}
+get_tumor_types(oncotree_version = 'oncotree_2019_08_01')
+```
+
+## Mapping of tumor type codes
+
+### UMLS and NCIt
+
+OncoTree provides a few mappings between their identifiers (codes) and other
+tumor classification systems. Currently, through their web API, only mappings
+between OncoTree codes and Uniﬁed Medical Language System (UMLS) and National
+Cancer Institute (NCI) Thesaurus (NCIt) codes are provided.
+
+From `{mskcc.oncotree}` we provide four functions:
+
+| Function             | Description                |
+| -------------------- | -------------------------- |
+| `oncotree_to_nci()`  | Map OncoTree to NCIt codes |
+| `nci_to_oncotree()`  | Map NCIt to OncoTree codes |
+| `oncotree_to_umls()` | Map OncoTree to UMLS codes |
+| `umls_to_oncotree()` | Map UMLS to OncoTree codes |
+
+### From and to NCIt
+
+```{r api_mappings_nci}
+oncotree_to_nci(c('MMB', 'PAOS'), expand = TRUE)
+
+nci_to_oncotree(c('C3706', 'C8969'), expand = TRUE)
+```
+
+### From and to UMLS
+
+```{r api_mappings_umls}
+oncotree_to_umls(c('MMB', 'PAOS'), expand = TRUE)
+
+umls_to_oncotree(c('C0205833', 'C0206642', 'C1334708'), expand = TRUE)
+```
+
+### Other mappings
+
+Besides UMLS and NCIt, you may also map OncoTree codes to
+[ICD-O](https://en.wikipedia.org/wiki/International_Classification_of_Diseases_for_Oncology)
+topography and morphology, and [HemeOnc](https://hemonc.org/) codes. This
+functionality is based on the file
+[ontology_mappings.txt.](https://github.com/cBioPortal/oncotree/blob/master/scripts/ontology_to_ontology_mapping_tool/ontology_mappings.txt)
+provided by OncoTree at their GitHub repository.
+
+In OncoTree's discussion forum the developers have warned that this data can't
+be expected to be neither accurate nor complete. However, it might still be
+useful for some users, and hence we also provide access to these mappings with
+the function `map_ontology_code()`.
+
+Here are some usage examples `map_ontology_code()`:
+
+```{R}
+# Simple example
+map_ontology_code(code = 'MMB', from = 'oncotree_code', to = 'nci_code')
+
+# Omit the `code` argument to get all possible mappings. Note that
+# one-to-many mappings will generate more than one row per `from` code.
+map_ontology_code(from = 'oncotree_code', to = 'nci_code')
+
+# Some mappings are one-to-many, e.g. "SRCCR", which means repeated rows for
+# the same input code.
+map_ontology_code(code = 'SRCCR', from = 'oncotree_code', to = 'nci_code')
+
+# Using the `collapse` argument to "collapse" one-to-many mappings makes sure
+# that the output has as many rows as the `from` vector.
+map_ontology_code(code = 'SRCCR',
+                  from = 'oncotree_code',
+                  to = 'nci_code',
+                  collapse = toString)
+
+map_ontology_code(code = 'SRCCR',
+                  from = 'oncotree_code',
+                  to = 'nci_code',
+                  collapse = list)
+
+map_ontology_code(
+  code = 'SRCCR',
+  from = 'oncotree_code',
+  to = 'nci_code',
+  collapse = \(x) paste(x, collapse = ' ')
+)
+
+# `map_ontology_code()` is vectorized over `code`
+map_ontology_code(code = c('AASTR', 'MDEP'), from = 'oncotree_code', to = 'nci_code')
+
+# Map from ICDO topography to ICDO morphology codes
+map_ontology_code(code = 'C72.9', from = 'icdo_topography_code', to = 'icdo_morphology_code')
+```
