@@ -1,3 +1,4 @@
+#' @importFrom rlang .data
 get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   # TODO: `children` object is not parsed because at the time of this writing
@@ -11,7 +12,7 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   umls_code <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
     tidyjson::enter_object('externalReferences') %>%
     tidyjson::enter_object('UMLS') %>%
     tidyjson::gather_array('dummy') %>%
@@ -26,28 +27,28 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   nci_code <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
     tidyjson::enter_object('externalReferences') %>%
     tidyjson::enter_object('NCI') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('nci_code') %>%
     tidyjson::as_tibble() %>%
     dplyr::group_by(.data$code) %>%
-    dplyr::summarise(nci_code = list(nci_code))
+    dplyr::summarise(nci_code = list(.data$nci_code))
 
   history <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
     tidyjson::enter_object('history') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('history') %>%
     tidyjson::as_tibble() %>%
     dplyr::group_by(.data$code) %>%
-    dplyr::summarise(history = list(history))
+    dplyr::summarise(history = list(.data$history))
 
   revocations <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
     tidyjson::enter_object('revocations') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('revocations') %>%
@@ -57,7 +58,7 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   precursors <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
     tidyjson::enter_object('precursors') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('precursors') %>%
