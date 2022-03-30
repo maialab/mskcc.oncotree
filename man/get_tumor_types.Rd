@@ -7,7 +7,7 @@
 get_tumor_types(oncotree_version = "oncotree_latest_stable")
 }
 \arguments{
-\item{version}{OncoTree version. Check available options with \code{\link[=get_versions]{get_versions()}}.}
+\item{oncotree_version}{OncoTree version. Check available options with \code{\link[=get_versions]{get_versions()}}.}
 }
 \value{
 A \link[tibble:tibble-package]{tibble} of 13 variables:
@@ -28,5 +28,5 @@ A \link[tibble:tibble-package]{tibble} of 13 variables:
 }
 }
 \description{
-Get tumor types
+Get tumor types according to OncoTree's ontology.
 }

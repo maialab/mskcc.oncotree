@@ -111,7 +111,9 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
 #' Get tumor types
 #'
-#' @param version OncoTree version. Check available options with [get_versions()].
+#' Get tumor types according to OncoTree's ontology.
+#'
+#' @param oncotree_version OncoTree version. Check available options with [get_versions()].
 #'
 #' @return A [tibble][tibble::tibble-package] of 13 variables:
 #' \describe{
