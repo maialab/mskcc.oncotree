@@ -28,7 +28,7 @@ This function maps Uniﬁed Medical Language System (UMLS) codes to OncoTree cod
 umls_to_oncotree()
 
 # Map a few selected OncoTree codes
-umls_to_oncotree(umls_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'))
+umls_to_oncotree(umls_code = c('C0206642', 'C0600113', 'C0279654', 'C1707436'))
 
 # Use `expand` to make sure the column `oncotree_code` is a character vector and
 # not a list-column. One-to-many mappings will result in more than row with
