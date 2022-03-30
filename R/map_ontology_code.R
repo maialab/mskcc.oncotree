@@ -39,15 +39,36 @@
 #'
 #' # Using the `collapse` argument to "collapse" one-to-many mappings makes sure
 #' # that the output has as many rows as the `from` vector.
-#' map_ontology_code('SRCCR', from = 'oncotree_code', to = 'nci_code', collapse = toString)
-#' map_ontology_code('SRCCR', from = 'oncotree_code', to = 'nci_code', collapse = list)
-#' map_ontology_code('SRCCR', from = 'oncotree_code', to = 'nci_code', collapse = \(x) paste(x, collapse = ' '))
+#' map_ontology_code('SRCCR',
+#'                   from = 'oncotree_code',
+#'                   to = 'nci_code',
+#'                   collapse = toString)
+#'
+#' map_ontology_code('SRCCR',
+#'                   from = 'oncotree_code',
+#'                   to = 'nci_code',
+#'                   collapse = list)
+#'
+#' map_ontology_code(
+#'   'SRCCR',
+#'   from = 'oncotree_code',
+#'   to = 'nci_code',
+#'   collapse = \(x) paste(x, collapse = ' ')
+#' )
 #'
 #' # `map_ontology_code()` is vectorized over `code`
-#' map_ontology_code(c('AASTR', 'MDEP'), from = 'oncotree_code', to = 'nci_code')
+#' map_ontology_code(
+#'   c('AASTR', 'MDEP'),
+#'   from = 'oncotree_code',
+#'   to = 'nci_code'
+#'   )
 #'
 #' # Map from ICDO topography to ICDO morphology codes
-#' map_ontology_code('C72.9', from = 'icdo_topography_code', to = 'icdo_morphology_code')
+#' map_ontology_code(
+#'   'C72.9',
+#'   from = 'icdo_topography_code',
+#'   to = 'icdo_morphology_code'
+#'   )
 #'
 #' @md
 #' @export
