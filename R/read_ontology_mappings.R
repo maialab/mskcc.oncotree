@@ -1,3 +1,4 @@
+#' @importFrom rlang .data
 #' @keywords internal
 read_ontology_mappings_ <-
   function(url = 'https://raw.githubusercontent.com/cBioPortal/oncotree/master/scripts/ontology_to_ontology_mapping_tool/ontology_mappings.txt', fix_names = TRUE, list_columns = TRUE) {
@@ -6,12 +7,12 @@ read_ontology_mappings_ <-
 
   if(fix_names) {
     tbl <- dplyr::relocate(tbl,
-                           oncotree_code = ONCOTREE_CODE,
-                           nci_code = NCIT_CODE,
-                           umls_code = UMLS_CODE,
-                           icdo_topography_code = ICDO_TOPOGRAPHY_CODE,
-                           icdo_morphology_code = ICDO_MORPHOLOGY_CODE,
-                           hemeonc_code = HEMEONC_CODE)
+                           oncotree_code = .data$ONCOTREE_CODE,
+                           nci_code = .data$NCIT_CODE,
+                           umls_code = .data$UMLS_CODE,
+                           icdo_topography_code = .data$ICDO_TOPOGRAPHY_CODE,
+                           icdo_morphology_code = .data$ICDO_MORPHOLOGY_CODE,
+                           hemeonc_code = .data$HEMEONC_CODE)
   }
 
   if(list_columns) {
