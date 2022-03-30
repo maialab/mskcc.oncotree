@@ -1,3 +1,30 @@
+#' Map OncoTree to UMLS codes
+#'
+#' This function maps OncoTree codes to Uniﬁed Medical Language System (UMLS) codes.
+#'
+#' @param oncotree_code OncoTree codes.
+#' @param oncotree_version OncoTree database release version.
+#' @param expand Whether to expand one-to-many mappings. If `TRUE`, one-to-many mappings are expanded into several rows in the output.
+#' @param keep_empty OncoTree codes that do not map to UMLS have the `umls_code` with `NA` if `keep_empty = TRUE`. Use `keep_empty = FALSE`, to remove the mapping (row) altogether from the output.
+#'
+#' @return A [tibble][tibble::tibble-package] of two variables: `oncotree_code` and `umls_code`.
+#' @md
+#'
+#' @examples
+#' # Leave `oncotree_code` empty to return mappings for all OncoTree codes
+#' oncotree_to_umls()
+#'
+#' # Map a few selected OncoTree codes
+#' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'))
+#'
+#' # Use `expand` to make sure the column `umls_code` is a character vector and
+#' # not a list-column. One-to-many mappings will result in more than row with
+#' # `oncotree_code` values repeated.
+#' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand = TRUE)
+#'
+#' # Use `keep_empty` to drop or keep one-to-none mappings
+#' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand = TRUE, keep_empty = FALSE)
+#'
 #' @importFrom rlang .data
 #' @export
 oncotree_to_umls <-
@@ -25,6 +52,30 @@ oncotree_to_umls <-
     return(mapping)
   }
 
+
+#' Map UMLS to OncoTree codes
+#'
+#' This function maps Uniﬁed Medical Language System (UMLS) codes to OncoTree codes.
+#'
+#' @param umls_code UMLS codes.
+#' @param oncotree_version OncoTree database release version.
+#' @param expand Whether to expand one-to-many mappings. If `TRUE`, one-to-many mappings are expanded into several rows in the output.
+#'
+#' @return A [tibble][tibble::tibble-package] of two variables: `umls_code` and `oncotree_code`.
+#' @md
+#'
+#' @examples
+#' # Leave `umls_code` empty to return mappings for all UMLS codes
+#' umls_to_oncotree()
+#'
+#' # Map a few selected OncoTree codes
+#' umls_to_oncotree(umls_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'))
+#'
+#' # Use `expand` to make sure the column `oncotree_code` is a character vector and
+#' # not a list-column. One-to-many mappings will result in more than row with
+#' # `oncotree_code` values repeated.
+#' umls_to_oncotree(umls_code = c('C0206642', 'C0600113', 'C0279654', 'C1707436'), expand = TRUE)
+#'
 #' @importFrom rlang .data
 #' @export
 umls_to_oncotree <-
