@@ -12,6 +12,7 @@ Programmatic access to OncoTree's ontology <http://oncotree.mskcc.org/>. Get acc
 Useful links:
 \itemize{
   \item \url{http://maialab.org/mskcc.oncotree}
+  \item Report bugs at \url{http://maialab.org/mskcc.oncotree/issues}
 }
 
 }

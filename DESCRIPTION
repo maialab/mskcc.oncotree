@@ -28,3 +28,4 @@ Imports:
     magrittr,
     tibble
 URL: http://maialab.org/mskcc.oncotree
+BugReports: http://maialab.org/mskcc.oncotree/issues
