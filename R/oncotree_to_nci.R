@@ -98,7 +98,7 @@ nci_to_oncotree <-
 
     if (!expand) {
       mapping <- dplyr::group_by(mapping, .data$nci_code) %>%
-        dplyr::summarise(oncotree_code = list(oncotree_code))
+        dplyr::summarise(oncotree_code = list(.data$oncotree_code))
     }
 
     return(mapping)
