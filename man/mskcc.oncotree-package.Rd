@@ -4,8 +4,30 @@
 \name{mskcc.oncotree-package}
 \alias{mskcc.oncotree}
 \alias{mskcc.oncotree-package}
-\title{mskcc.oncotree: What the Package Does (Title Case)}
+\title{mskcc.oncotree: Interface to the OncoTree API}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+Programmatic access to OncoTree's ontology <http://oncotree.mskcc.org/>. Get access to tumor main types, identifiers and utility routines to map across to other tumor classification systems.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://maialab.org/mskcc.oncotree}
+}
+
+}
+\author{
+\strong{Maintainer}: Ramiro Magno \email{ramiro.magno@gmail.com} (\href{https://orcid.org/0000-0001-5226-3441}{ORCID})
+
+Authors:
+\itemize{
+  \item Isabel Duarte \email{iduarte.scientist@gmail.com} (\href{https://orcid.org/0000-0003-0060-2936}{ORCID})
+  \item Ana-Teresa Maia \email{maia.anateresa@gmail.com} (\href{https://orcid.org/0000-0002-0454-9207}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item CINTESIS [copyright holder, funder]
+}
+
 }
 \keyword{internal}

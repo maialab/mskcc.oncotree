@@ -1,0 +1,13 @@
+url: http://maialab.org/mskcc.oncotree
+template:
+  bootstrap: 5
+authors:
+  Ramiro Magno:
+    href: https://rmagno.eu/
+  Isabel Duarte:
+    href: http://iduarte.eu/
+  Ana Teresa Maia:
+    href: https://www.linkedin.com/in/ana-teresa-maia-2a1a866/
+  CINTESIS:
+    href: https://cintesis.eu/
+    html: <img src='https://maialab.org/agvgd/reference/figures/cintesis.svg' height=24>
