@@ -74,6 +74,7 @@
 #'   )
 #'
 #' @md
+#' @importFrom rlang :=
 #' @export
 map_ontology_code <- function(code, from, to, collapse = NULL) {
   ontology_code_types <-
