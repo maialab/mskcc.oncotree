@@ -1,5 +1,3 @@
-#' @importFrom rlang .data
-#' @keywords internal
 read_ontology_mappings_ <-
   function(url = 'https://raw.githubusercontent.com/cBioPortal/oncotree/master/scripts/ontology_to_ontology_mapping_tool/ontology_mappings.txt', fix_names = TRUE, list_columns = TRUE) {
 
@@ -22,5 +20,36 @@ read_ontology_mappings_ <-
   return(tbl)
 }
 
+#' Reads ontology_mappings.txt from OncoTree's GitHub repository
+#'
+#' Reads `ontology_mappings.txt` from OncoTree's GitHub repository and returns
+#' its contents as a tibble.
+#'
+#' @param url URL of `ontology_mappings.txt`.
+#' @param fix_names Whether to convert column names to lowercase, snakecase.
+#' @param list_columns Whether to return multi-value variables as list-columns.
+#'
+#' @return A [tibble][tibble::tibble-package] of six variables:
+#' \describe{
+#' \item{`oncotree_code`}{OncoTree code.}
+#' \item{`nci_code`}{National Cancer Institute (NCI) Thesaurus code.}
+#' \item{`umls_code`}{Uniﬁed Medical Language System (UMLS) code.}
+#' \item{`icdo_topography_code`}{ICD-O topography code.}
+#' \item{`icdo_morphology_code`}{ICD-O morphology code.}
+#' \item{`hemeonc_code`}{HemeOnc code.}
+#' }
+#'
+#' @examples
+#' # Import ontology_mappings.txt as tibble
+#' read_ontology_mappings()
+#'
+#' # Do not convert column names, i.e. keep them as originally in the file
+#' read_ontology_mappings(fix_names = FALSE)
+#'
+#' # Keep multi-value columns as originally, i.e. as comma-separated values
+#' read_ontology_mappings(list_columns = FALSE)
+#'
+#' @importFrom rlang .data
+#' @keywords internal
 #' @export
 read_ontology_mappings <- memoise::memoise(read_ontology_mappings_)
