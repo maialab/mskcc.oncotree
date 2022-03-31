@@ -21,6 +21,9 @@
 #' @param to The target ontology. One of: `'oncotree_code'`, `'nci_code'`, `'umls_code'`, `'icdo_topography_code'`, `'icdo_morphology_code'`, and `'hemeonc_code'`.
 #' @param collapse A function that expects one argument, it will be the character vector of codes in the `to` variable, that are to be "collapsed". When the mapping is one-to-many, passing a collapsing function will allow you to make the mapping one-to-one. See examples.
 #'
+#' @return A [tibble][tibble::tibble-package] of two variables: first column is
+#'   corresponds to the `from` variable and the second is the `to` variable.
+#'
 #' @source The mappings here provided are based on the file \url{https://github.com/cBioPortal/oncotree/blob/master/scripts/ontology_to_ontology_mapping_tool/ontology_mappings.txt}.
 #'
 #' @seealso [oncotree_to_nci()], [nci_to_oncotree()], [oncotree_to_umls()] and [umls_to_oncotree()].

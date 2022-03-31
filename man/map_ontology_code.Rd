@@ -18,6 +18,10 @@ map_ontology_code(code, from, to, collapse = NULL)
 
 \item{collapse}{A function that expects one argument, it will be the character vector of codes in the \code{to} variable, that are to be "collapsed". When the mapping is one-to-many, passing a collapsing function will allow you to make the mapping one-to-one. See examples.}
 }
+\value{
+A \link[tibble:tibble-package]{tibble} of two variables: first column is
+corresponds to the \code{from} variable and the second is the \code{to} variable.
+}
 \description{
 This function maps codes (identifiers) across tumor classification systems.
 Use the arguments \code{from} and \code{to} to choose the source and target ontologies.
