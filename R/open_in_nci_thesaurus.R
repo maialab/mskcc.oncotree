@@ -7,7 +7,7 @@
 #' @return Run for its side effect.
 #'
 #' @examples
-#' open_in_nci_thesaurus()
+#' open_in_nci_thesaurus('C3107')
 #' @export
 open_in_nci_thesaurus <- function(nci_code) {
 

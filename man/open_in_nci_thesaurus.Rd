@@ -16,5 +16,5 @@ Run for its side effect.
 Opens the web browser at NCI Thesaurus for the entries provided as NCI codes.
 }
 \examples{
-open_in_nci_thesaurus()
+open_in_nci_thesaurus('C3107')
 }
