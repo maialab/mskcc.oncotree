@@ -1,6 +1,6 @@
 Package: mskcc.oncotree
 Type: Package
-Title: Interface to the OncoTree API
+Title: Interface to the 'OncoTree' API
 Version: 0.1.0
 Authors@R: c(
     person(given = "Ramiro", family = "Magno",
@@ -17,7 +17,7 @@ Authors@R: c(
     person("CINTESIS",
     role = c("cph", "fnd"))
     )
-Description: Programmatic access to OncoTree's ontology
+Description: Programmatic access to 'OncoTree' API
     <http://oncotree.mskcc.org/>. Get access to tumor main types, identifiers
     and utility routines to map across to other tumor classification systems.
 License: MIT + file LICENSE
@@ -36,5 +36,5 @@ Imports:
     tibble,
     tidyjson,
     tidyr
-URL: http://maialab.org/mskcc.oncotree
-BugReports: http://maialab.org/mskcc.oncotree/issues
+URL: https://maialab.org/mskcc.oncotree/
+BugReports: https://github.com/maialab/mskcc.oncotree/issues

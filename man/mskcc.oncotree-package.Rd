@@ -4,15 +4,15 @@
 \name{mskcc.oncotree-package}
 \alias{mskcc.oncotree}
 \alias{mskcc.oncotree-package}
-\title{mskcc.oncotree: Interface to the OncoTree API}
+\title{mskcc.oncotree: Interface to the 'OncoTree' API}
 \description{
-Programmatic access to OncoTree's ontology <http://oncotree.mskcc.org/>. Get access to tumor main types, identifiers and utility routines to map across to other tumor classification systems.
+Programmatic access to 'OncoTree' API <http://oncotree.mskcc.org/>. Get access to tumor main types, identifiers and utility routines to map across to other tumor classification systems.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://maialab.org/mskcc.oncotree}
-  \item Report bugs at \url{http://maialab.org/mskcc.oncotree/issues}
+  \item \url{https://maialab.org/mskcc.oncotree/}
+  \item Report bugs at \url{https://github.com/maialab/mskcc.oncotree/issues}
 }
 
 }
