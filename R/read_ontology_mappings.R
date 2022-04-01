@@ -1,5 +1,13 @@
+ontology_mapping_url <- function() {
+  paste0(
+    'https://raw.githubusercontent.com',
+    '/cBioPortal/oncotree/master/scripts/',
+    'ontology_to_ontology_mapping_tool/ontology_mappings.txt'
+  )
+}
+
 read_ontology_mappings_ <-
-  function(url = 'https://raw.githubusercontent.com/cBioPortal/oncotree/master/scripts/ontology_to_ontology_mapping_tool/ontology_mappings.txt', fix_names = TRUE, list_columns = TRUE) {
+  function(url = ontology_mapping_url(), fix_names = TRUE, list_columns = TRUE) {
 
   tbl <- readr::read_tsv(file = url, col_types = 'cccccc', progress = FALSE)
 

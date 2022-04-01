@@ -1,3 +1,13 @@
+#' Browse the NCIt
+#'
+#' Opens the web browser at NCI Thesaurus for the entries provided as NCI codes.
+#'
+#' @param nci_code A character vector of NCI codes.
+#'
+#' @return Run for its side effect.
+#'
+#' @examples
+#' open_in_nci_thesaurus()
 #' @export
 open_in_nci_thesaurus <- function(nci_code) {
 

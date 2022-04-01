@@ -12,14 +12,14 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   umls_code <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring('code')) %>%
     tidyjson::enter_object('externalReferences') %>%
     tidyjson::enter_object('UMLS') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('umls_code') %>%
     tidyjson::as_tibble() %>%
     dplyr::group_by(.data$code) %>%
-    dplyr::summarise(umls_code = list(umls_code))
+    dplyr::summarise(umls_code = list(.data$umls_code))
 
     # tidyjson::append_values_string('UMLS') %>%
     # tidyjson::as_tibble() %>%
@@ -27,7 +27,7 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   nci_code <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring('code')) %>%
     tidyjson::enter_object('externalReferences') %>%
     tidyjson::enter_object('NCI') %>%
     tidyjson::gather_array('dummy') %>%
@@ -38,7 +38,7 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   history <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring('code')) %>%
     tidyjson::enter_object('history') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('history') %>%
@@ -48,23 +48,23 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 
   revocations <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring('code')) %>%
     tidyjson::enter_object('revocations') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('revocations') %>%
     tidyjson::as_tibble() %>%
     dplyr::group_by(.data$code) %>%
-    dplyr::summarise(revocations = list(revocations))
+    dplyr::summarise(revocations = list(.data$revocations))
 
   precursors <-
     tbl_json_1 %>%
-    tidyjson::spread_values(code = tidyjson::jstring(.data$code)) %>%
+    tidyjson::spread_values(code = tidyjson::jstring('code')) %>%
     tidyjson::enter_object('precursors') %>%
     tidyjson::gather_array('dummy') %>%
     tidyjson::append_values_string('precursors') %>%
     tidyjson::as_tibble() %>%
     dplyr::group_by(.data$code) %>%
-    dplyr::summarise(precursors = list(precursors))
+    dplyr::summarise(precursors = list(.data$precursors))
 
   tumor_types <-
     tbl_json_1 %>%
@@ -131,6 +131,9 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 #' \item{`precursors`}{TODO.}
 #' \item{`color`}{Color associated with the tumor type.}
 #' }
+#' @examples
+#' get_tumor_types()
+#'
 #' @md
 #' @importFrom rlang .data
 #' @export

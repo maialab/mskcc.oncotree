@@ -5,8 +5,7 @@
 \title{Reads ontology_mappings.txt from OncoTree's GitHub repository}
 \usage{
 read_ontology_mappings(
- 
-    url = "https://raw.githubusercontent.com/cBioPortal/oncotree/master/scripts/ontology_to_ontology_mapping_tool/ontology_mappings.txt",
+  url = ontology_mapping_url(),
   fix_names = TRUE,
   list_columns = TRUE
 )

@@ -20,10 +20,12 @@
 #' # Use `expand` to make sure the column `umls_code` is a character vector and
 #' # not a list-column. One-to-many mappings will result in more than row with
 #' # `oncotree_code` values repeated.
-#' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand = TRUE)
+#' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'),
+#'   expand = TRUE)
 #'
 #' # Use `keep_empty` to drop or keep one-to-none mappings
-#' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand = TRUE, keep_empty = FALSE)
+#' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'),
+#'   expand = TRUE, keep_empty = FALSE)
 #'
 #' @importFrom rlang .data
 #' @export
@@ -46,7 +48,7 @@ oncotree_to_umls <-
 
     if (expand) {
       mapping <-
-        tidyr::unnest(mapping, umls_code, keep_empty = keep_empty)
+        tidyr::unnest(mapping, .data$umls_code, keep_empty = keep_empty)
     }
 
     return(mapping)
@@ -101,7 +103,7 @@ umls_to_oncotree <-
 
     if (!expand) {
       mapping <- dplyr::group_by(mapping, .data$umls_code) %>%
-        dplyr::summarise(oncotree_code = list(oncotree_code))
+        dplyr::summarise(oncotree_code = list(.data$oncotree_code))
     }
 
     return(mapping)

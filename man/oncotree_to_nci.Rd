@@ -36,9 +36,11 @@ oncotree_to_nci(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'))
 # Use `expand` to make sure the column `nci_code` is a character vector and
 # not a list-column. One-to-many mappings will result in more than row with
 # `oncotree_code` values repeated.
-oncotree_to_nci(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand = TRUE)
+oncotree_to_nci(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand
+= TRUE)
 
 # Use `keep_empty` to drop or keep one-to-none mappings
-oncotree_to_nci(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand = TRUE, keep_empty = FALSE)
+oncotree_to_nci(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand
+= TRUE, keep_empty = FALSE)
 
 }

@@ -30,9 +30,10 @@ nci_to_oncotree()
 # Map a few selected OncoTree codes
 nci_to_oncotree(nci_code = c('C8969', 'C4862', 'C9168', 'C7967'))
 
-# Use `expand` to make sure the column `oncotree_code` is a character vector and
-# not a list-column. One-to-many mappings will result in more than row with
-# `oncotree_code` values repeated.
-nci_to_oncotree(nci_code = c('C8969', 'C4862', 'C9168', 'C7967'), expand = TRUE)
+# Use `expand` to make sure the column `oncotree_code` is a character vector
+# and not a list-column. One-to-many mappings will result in more than row
+# with `oncotree_code` values repeated.
+nci_to_oncotree(nci_code = c('C8969', 'C4862', 'C9168', 'C7967'), expand =
+TRUE)
 
 }
