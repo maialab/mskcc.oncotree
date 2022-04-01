@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Programmatic access to OncoTree's ontology
+<meta name="description" content="Programmatic access to OncoTree API
     &lt;http://oncotree.mskcc.org/&gt;. Get access to tumor main types, identifiers
     and utility routines to map across to other tumor classification systems.">
 <title>Interface to the OncoTree API • mskcc.oncotree</title>
@@ -14,7 +14,7 @@
 <script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Interface to the OncoTree API">
-<meta property="og:description" content="Programmatic access to OncoTree's ontology
+<meta property="og:description" content="Programmatic access to OncoTree API
     &lt;http://oncotree.mskcc.org/&gt;. Get access to tumor main types, identifiers
     and utility routines to map across to other tumor classification systems.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -47,7 +47,14 @@
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
 </form>
 
-      <ul class="navbar-nav"></ul>
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/maialab/mskcc.oncotree/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 
     
@@ -59,13 +66,13 @@
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of <a href="http://maialab.org/mskcc.oncotree">mskcc.oncotree</a> is to facilitate access to the <a href="http://oncotree.mskcc.org/" class="external-link">OncoTree API</a>.</p>
+<p>The goal of <a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a> is to facilitate access to the <a href="http://oncotree.mskcc.org/" class="external-link">OncoTree API</a>.</p>
 <p>The OncoTree is an open-source ontology that was developed at Memorial Sloan Kettering Cancer Center (MSK) for standardizing cancer type diagnosis from a clinical perspective by assigning each diagnosis a unique OncoTree code.</p>
 <p>Currently, the functionality provided is the retrieval of tumor types and the mapping of tumor type codes across a few tumor type classification systems.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of <a href="http://maialab.org/mskcc.oncotree">mskcc.oncotree</a> with:</p>
+<p>You can install the development version of <a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"maialab/mskcc.oncotree"</span><span class="op">)</span></code></pre></div>
@@ -75,7 +82,7 @@
 </h2>
 <p>Get the tumor types defined by OncoTree in their latest release:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://maialab.org/mskcc.oncotree">mskcc.oncotree</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a></span><span class="op">)</span>
 
 <span class="op">(</span><span class="va">tumor_types</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_tumor_types.html">get_tumor_types</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 885 × 13</span>
@@ -178,7 +185,7 @@
 <h3 id="umls-and-ncit">UMLS and NCIt<a class="anchor" aria-label="anchor" href="#umls-and-ncit"></a>
 </h3>
 <p>OncoTree provides a few mappings between their identifiers (codes) and other tumor classification systems. Currently, through their web API, only mappings between OncoTree codes and Uniﬁed Medical Language System (UMLS) and National Cancer Institute (NCI) Thesaurus (NCIt) codes are provided.</p>
-<p>From <a href="http://maialab.org/mskcc.oncotree">mskcc.oncotree</a> we provide four functions:</p>
+<p>From <a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a> we provide four functions:</p>
 <table class="table">
 <thead><tr class="header">
 <th>Function</th>
@@ -343,7 +350,8 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="http://maialab.org/mskcc.oncotree/issues">Report a bug</a></li>
+<li><a href="https://github.com/maialab/mskcc.oncotree/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/maialab/mskcc.oncotree/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
