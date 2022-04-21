@@ -22,7 +22,7 @@ A [tibble][tibble::tibble-package] of six variables:
 \describe{
 \item{`oncotree_code`}{OncoTree code.}
 \item{`nci_code`}{National Cancer Institute (NCI) Thesaurus code.}
-\item{`umls_code`}{Uniﬁed Medical Language System (UMLS) code.}
+\item{`umls_code`}{Unified Medical Language System (UMLS) code.}
 \item{`icdo_topography_code`}{ICD-O topography code.}
 \item{`icdo_morphology_code`}{ICD-O morphology code.}
 \item{`hemeonc_code`}{HemeOnc code.}

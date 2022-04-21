@@ -21,7 +21,7 @@ umls_to_oncotree(
 A \link[tibble:tibble-package]{tibble} of two variables: \code{umls_code} and \code{oncotree_code}.
 }
 \description{
-This function maps Uniﬁed Medical Language System (UMLS) codes to OncoTree codes.
+This function maps Unified Medical Language System (UMLS) codes to OncoTree codes.
 }
 \examples{
 # Leave `umls_code` empty to return mappings for all UMLS codes

@@ -1,6 +1,6 @@
 #' Map OncoTree to UMLS codes
 #'
-#' This function maps OncoTree codes to Uniﬁed Medical Language System (UMLS) codes.
+#' This function maps OncoTree codes to Unified Medical Language System (UMLS) codes.
 #'
 #' @param oncotree_code OncoTree codes.
 #' @param oncotree_version OncoTree database release version.
@@ -57,7 +57,7 @@ oncotree_to_umls <-
 
 #' Map UMLS to OncoTree codes
 #'
-#' This function maps Uniﬁed Medical Language System (UMLS) codes to OncoTree codes.
+#' This function maps Unified Medical Language System (UMLS) codes to OncoTree codes.
 #'
 #' @param umls_code UMLS codes.
 #' @param oncotree_version OncoTree database release version.

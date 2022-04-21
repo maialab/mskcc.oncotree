@@ -124,7 +124,7 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 #' \item{`tissue`}{Tissue associated with the tumor type.}
 #' \item{`level`}{OncoTree is a hierachical classification system with 5 levels. At the root level (level 0) there is the single `"TISSUE"` tumor type. At level 1, there are 32 tissue sites, e.g., `"BREAST"`.}
 #' \item{`parent`}{The `parent` is the parent `oncotree_code` for this tumor type.}
-#' \item{`umls_code`}{The corresponding tumor type identifier(s) in the Uniﬁed Medical Language System (UMLS).}
+#' \item{`umls_code`}{The corresponding tumor type identifier(s) in the Unified Medical Language System (UMLS).}
 #' \item{`nci_code`}{The corresponding tumor type identifier(s) in the National Cancer Institute (NCI) Thesaurus.}
 #' \item{`history`}{Previous tumor type codes (from previous OncoTree versions) used to identify this tumor type.}
 #' \item{`revocations`}{TODO.}

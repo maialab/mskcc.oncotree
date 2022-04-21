@@ -19,7 +19,7 @@ A \link[tibble:tibble-package]{tibble} of 13 variables:
 \item{\code{tissue}}{Tissue associated with the tumor type.}
 \item{\code{level}}{OncoTree is a hierachical classification system with 5 levels. At the root level (level 0) there is the single \code{"TISSUE"} tumor type. At level 1, there are 32 tissue sites, e.g., \code{"BREAST"}.}
 \item{\code{parent}}{The \code{parent} is the parent \code{oncotree_code} for this tumor type.}
-\item{\code{umls_code}}{The corresponding tumor type identifier(s) in the Uniﬁed Medical Language System (UMLS).}
+\item{\code{umls_code}}{The corresponding tumor type identifier(s) in the Unified Medical Language System (UMLS).}
 \item{\code{nci_code}}{The corresponding tumor type identifier(s) in the National Cancer Institute (NCI) Thesaurus.}
 \item{\code{history}}{Previous tumor type codes (from previous OncoTree versions) used to identify this tumor type.}
 \item{\code{revocations}}{TODO.}
