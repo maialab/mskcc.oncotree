@@ -4,6 +4,9 @@
 # mskcc.oncotree
 
 <!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/mskcc.oncotree)](https://CRAN.R-project.org/package=mskcc.oncotree)
 <!-- badges: end -->
 
 The goal of `{mskcc.oncotree}` is to facilitate access to the [OncoTree
@@ -19,6 +22,12 @@ and the mapping of tumor type codes across a few tumor type
 classification systems.
 
 ## Installation
+
+Install `{mskcc.oncotree}` from CRAN:
+
+``` r
+install.packages("mskcc.oncotree")
+```
 
 You can install the development version of `{mskcc.oncotree}` with:
 
