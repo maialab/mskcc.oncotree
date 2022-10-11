@@ -10,8 +10,8 @@
     and utility routines to map across to other tumor classification systems.">
 <title>Interface to the OncoTree API • mskcc.oncotree</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Interface to the OncoTree API">
 <meta property="og:description" content="Programmatic access to OncoTree API
@@ -30,7 +30,7 @@
     
     <a class="navbar-brand me-2" href="index.html">mskcc.oncotree</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +41,9 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -65,7 +68,6 @@
 <div class="page-header"><h1 id="mskcconcotree">mskcc.oncotree<a class="anchor" aria-label="anchor" href="#mskcconcotree"></a>
 </h1></div>
 <!-- badges: start -->
-
 <p>The goal of <a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a> is to facilitate access to the <a href="http://oncotree.mskcc.org/" class="external-link">OncoTree API</a>.</p>
 <p>The OncoTree is an open-source ontology that was developed at Memorial Sloan Kettering Cancer Center (MSK) for standardizing cancer type diagnosis from a clinical perspective by assigning each diagnosis a unique OncoTree code.</p>
 <p>Currently, the functionality provided is the retrieval of tumor types and the mapping of tumor type codes across a few tumor type classification systems.</p>
@@ -74,112 +76,112 @@
 </h2>
 <p>Install <a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a> from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mskcc.oncotree"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mskcc.oncotree"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of <a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"maialab/mskcc.oncotree"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"maialab/mskcc.oncotree"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="oncotree-tumor-types">OncoTree tumor types<a class="anchor" aria-label="anchor" href="#oncotree-tumor-types"></a>
 </h2>
 <p>Get the tumor types defined by OncoTree in their latest release:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a></span><span class="op">)</span>
-
-<span class="op">(</span><span class="va">tumor_types</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_tumor_types.html">get_tumor_types</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 885 × 13</span>
-<span class="co">#&gt;    oncotree_version  oncotree_code oncotree_name   oncotree_main_t… tissue level</span>
-<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;         &lt;chr&gt;           &lt;chr&gt;            &lt;chr&gt;  &lt;int&gt;</span>
-<span class="co">#&gt;  1 oncotree_latest_… MMB           Medullomyoblas… Embryonal Tumor  CNS/B…     3</span>
-<span class="co">#&gt;  2 oncotree_latest_… GCB           Germinal Cente… Mature B-Cell N… Lymph…     6</span>
-<span class="co">#&gt;  3 oncotree_latest_… SBLU          Splenic B-Cell… Mature B-Cell N… Lymph…     5</span>
-<span class="co">#&gt;  4 oncotree_latest_… OHNCA         Head and Neck … Head and Neck C… Head …     2</span>
-<span class="co">#&gt;  5 oncotree_latest_… PAOS          Parosteal Oste… Bone Cancer      Bone       3</span>
-<span class="co">#&gt;  6 oncotree_latest_… TMDS          Therapy-Relate… Leukemia         Myelo…     5</span>
-<span class="co">#&gt;  7 oncotree_latest_… ARMS          Alveolar Rhabd… Soft Tissue Sar… Soft …     3</span>
-<span class="co">#&gt;  8 oncotree_latest_… SCST          Sex Cord Strom… Sex Cord Stroma… Ovary…     2</span>
-<span class="co">#&gt;  9 oncotree_latest_… ITLPDGI       Indolent T-Cel… Mature T and NK… Lymph…     5</span>
-<span class="co">#&gt; 10 oncotree_latest_… MBC           Metaplastic Br… Breast Cancer    Breast     2</span>
-<span class="co">#&gt; # … with 875 more rows, and 7 more variables: parent &lt;chr&gt;, umls_code &lt;list&gt;,</span>
-<span class="co">#&gt; #   nci_code &lt;list&gt;, history &lt;list&gt;, revocations &lt;list&gt;, precursors &lt;list&gt;,</span>
-<span class="co">#&gt; #   color &lt;chr&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://maialab.org/mskcc.oncotree/" class="external-link">mskcc.oncotree</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">(</span><span class="va">tumor_types</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_tumor_types.html">get_tumor_types</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 885 × 13</span></span>
+<span><span class="co">#&gt;    oncotree_version  oncotree_code oncotree_name   oncotree_main_t… tissue level</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;         &lt;chr&gt;           &lt;chr&gt;            &lt;chr&gt;  &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 oncotree_latest_… MMB           Medullomyoblas… Embryonal Tumor  CNS/B…     3</span></span>
+<span><span class="co">#&gt;  2 oncotree_latest_… GCB           Germinal Cente… Mature B-Cell N… Lymph…     6</span></span>
+<span><span class="co">#&gt;  3 oncotree_latest_… SBLU          Splenic B-Cell… Mature B-Cell N… Lymph…     5</span></span>
+<span><span class="co">#&gt;  4 oncotree_latest_… OHNCA         Head and Neck … Head and Neck C… Head …     2</span></span>
+<span><span class="co">#&gt;  5 oncotree_latest_… PAOS          Parosteal Oste… Bone Cancer      Bone       3</span></span>
+<span><span class="co">#&gt;  6 oncotree_latest_… TMDS          Therapy-Relate… Leukemia         Myelo…     5</span></span>
+<span><span class="co">#&gt;  7 oncotree_latest_… ARMS          Alveolar Rhabd… Soft Tissue Sar… Soft …     3</span></span>
+<span><span class="co">#&gt;  8 oncotree_latest_… SCST          Sex Cord Strom… Sex Cord Stroma… Ovary…     2</span></span>
+<span><span class="co">#&gt;  9 oncotree_latest_… ITLPDGI       Indolent T-Cel… Mature T and NK… Lymph…     5</span></span>
+<span><span class="co">#&gt; 10 oncotree_latest_… MBC           Metaplastic Br… Breast Cancer    Breast     2</span></span>
+<span><span class="co">#&gt; # … with 875 more rows, and 7 more variables: parent &lt;chr&gt;, umls_code &lt;list&gt;,</span></span>
+<span><span class="co">#&gt; #   nci_code &lt;list&gt;, history &lt;list&gt;, revocations &lt;list&gt;, precursors &lt;list&gt;,</span></span>
+<span><span class="co">#&gt; #   color &lt;chr&gt;</span></span></code></pre></div>
 <p>The mapping to the corresponding tumor type identifier(s) in the Uniﬁed Medical Language System (UMLS) and in the National Cancer Institute (NCI) Thesaurus classification systems is provided in columns <code>umls_code</code> and <code>nci_code</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tumor_types</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'oncotree_code'</span>, <span class="st">'umls_code'</span>, <span class="st">'nci_code'</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; # A tibble: 885 × 3</span>
-<span class="co">#&gt;    oncotree_code umls_code nci_code </span>
-<span class="co">#&gt;    &lt;chr&gt;         &lt;list&gt;    &lt;list&gt;   </span>
-<span class="co">#&gt;  1 MMB           &lt;chr [1]&gt; &lt;chr [1]&gt;</span>
-<span class="co">#&gt;  2 GCB           &lt;NULL&gt;    &lt;NULL&gt;   </span>
-<span class="co">#&gt;  3 SBLU          &lt;NULL&gt;    &lt;NULL&gt;   </span>
-<span class="co">#&gt;  4 OHNCA         &lt;NULL&gt;    &lt;NULL&gt;   </span>
-<span class="co">#&gt;  5 PAOS          &lt;chr [1]&gt; &lt;chr [1]&gt;</span>
-<span class="co">#&gt;  6 TMDS          &lt;NULL&gt;    &lt;NULL&gt;   </span>
-<span class="co">#&gt;  7 ARMS          &lt;chr [1]&gt; &lt;chr [1]&gt;</span>
-<span class="co">#&gt;  8 SCST          &lt;chr [1]&gt; &lt;chr [1]&gt;</span>
-<span class="co">#&gt;  9 ITLPDGI       &lt;NULL&gt;    &lt;NULL&gt;   </span>
-<span class="co">#&gt; 10 MBC           &lt;chr [1]&gt; &lt;chr [1]&gt;</span>
-<span class="co">#&gt; # … with 875 more rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">tumor_types</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'oncotree_code'</span>, <span class="st">'umls_code'</span>, <span class="st">'nci_code'</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; # A tibble: 885 × 3</span></span>
+<span><span class="co">#&gt;    oncotree_code umls_code nci_code </span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;         &lt;list&gt;    &lt;list&gt;   </span></span>
+<span><span class="co">#&gt;  1 MMB           &lt;chr [1]&gt; &lt;chr [1]&gt;</span></span>
+<span><span class="co">#&gt;  2 GCB           &lt;NULL&gt;    &lt;NULL&gt;   </span></span>
+<span><span class="co">#&gt;  3 SBLU          &lt;NULL&gt;    &lt;NULL&gt;   </span></span>
+<span><span class="co">#&gt;  4 OHNCA         &lt;NULL&gt;    &lt;NULL&gt;   </span></span>
+<span><span class="co">#&gt;  5 PAOS          &lt;chr [1]&gt; &lt;chr [1]&gt;</span></span>
+<span><span class="co">#&gt;  6 TMDS          &lt;NULL&gt;    &lt;NULL&gt;   </span></span>
+<span><span class="co">#&gt;  7 ARMS          &lt;chr [1]&gt; &lt;chr [1]&gt;</span></span>
+<span><span class="co">#&gt;  8 SCST          &lt;chr [1]&gt; &lt;chr [1]&gt;</span></span>
+<span><span class="co">#&gt;  9 ITLPDGI       &lt;NULL&gt;    &lt;NULL&gt;   </span></span>
+<span><span class="co">#&gt; 10 MBC           &lt;chr [1]&gt; &lt;chr [1]&gt;</span></span>
+<span><span class="co">#&gt; # … with 875 more rows</span></span></code></pre></div>
 <p><code>umls_code</code> and <code>nci_code</code> are list-columns because the mapping can be one-to-many.</p>
 <p>If you want, you may convert these columns to type <code>character</code> by unnesting with <code><a href="https://tidyr.tidyverse.org/reference/nest.html" class="external-link">tidyr::unnest()</a></code>. This will have the side effect of creating more than one row per tumor type for cases where the mapping is one-to-many.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tumor_types</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'oncotree_code'</span>, <span class="st">'umls_code'</span><span class="op">)</span><span class="op">]</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html" class="external-link">unnest</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="st">'umls_code'</span>, keep_empty <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 886 × 2</span>
-<span class="co">#&gt;    oncotree_code umls_code</span>
-<span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;    </span>
-<span class="co">#&gt;  1 MMB           C0205833 </span>
-<span class="co">#&gt;  2 GCB           &lt;NA&gt;     </span>
-<span class="co">#&gt;  3 SBLU          &lt;NA&gt;     </span>
-<span class="co">#&gt;  4 OHNCA         &lt;NA&gt;     </span>
-<span class="co">#&gt;  5 PAOS          C0206642 </span>
-<span class="co">#&gt;  6 TMDS          &lt;NA&gt;     </span>
-<span class="co">#&gt;  7 ARMS          C0206655 </span>
-<span class="co">#&gt;  8 SCST          C0600113 </span>
-<span class="co">#&gt;  9 ITLPDGI       &lt;NA&gt;     </span>
-<span class="co">#&gt; 10 MBC           C1334708 </span>
-<span class="co">#&gt; # … with 876 more rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">tumor_types</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'oncotree_code'</span>, <span class="st">'umls_code'</span><span class="op">)</span><span class="op">]</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html" class="external-link">unnest</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="st">'umls_code'</span>, keep_empty <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 886 × 2</span></span>
+<span><span class="co">#&gt;    oncotree_code umls_code</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;    </span></span>
+<span><span class="co">#&gt;  1 MMB           C0205833 </span></span>
+<span><span class="co">#&gt;  2 GCB           &lt;NA&gt;     </span></span>
+<span><span class="co">#&gt;  3 SBLU          &lt;NA&gt;     </span></span>
+<span><span class="co">#&gt;  4 OHNCA         &lt;NA&gt;     </span></span>
+<span><span class="co">#&gt;  5 PAOS          C0206642 </span></span>
+<span><span class="co">#&gt;  6 TMDS          &lt;NA&gt;     </span></span>
+<span><span class="co">#&gt;  7 ARMS          C0206655 </span></span>
+<span><span class="co">#&gt;  8 SCST          C0600113 </span></span>
+<span><span class="co">#&gt;  9 ITLPDGI       &lt;NA&gt;     </span></span>
+<span><span class="co">#&gt; 10 MBC           C1334708 </span></span>
+<span><span class="co">#&gt; # … with 876 more rows</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="oncotree-versions">OncoTree versions<a class="anchor" aria-label="anchor" href="#oncotree-versions"></a>
 </h2>
 <p>The data provided by OncoTree is versioned. You may list the released versions so far with <code><a href="reference/get_versions.html">get_versions()</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/get_versions.html">get_versions</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 28 × 4</span>
-<span class="co">#&gt;    oncotree_version           description                   visible release_date</span>
-<span class="co">#&gt;    &lt;chr&gt;                      &lt;chr&gt;                         &lt;lgl&gt;   &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 oncotree_development       Latest OncoTree under develo… TRUE    2021-11-04  </span>
-<span class="co">#&gt;  2 oncotree_candidate_release This version of the OncoTree… TRUE    2021-11-03  </span>
-<span class="co">#&gt;  3 oncotree_2021_11_02        Stable OncoTree released on … FALSE   2021-11-02  </span>
-<span class="co">#&gt;  4 oncotree_latest_stable     This is the latest approved … TRUE    2021-11-02  </span>
-<span class="co">#&gt;  5 oncotree_2020_10_01        Stable OncoTree released on … FALSE   2020-10-01  </span>
-<span class="co">#&gt;  6 oncotree_2020_04_01        Stable OncoTree released on … FALSE   2020-04-01  </span>
-<span class="co">#&gt;  7 oncotree_2020_02_06        Stable OncoTree released on … FALSE   2020-02-06  </span>
-<span class="co">#&gt;  8 oncotree_2020_02_01        Stable OncoTree released on … FALSE   2020-02-01  </span>
-<span class="co">#&gt;  9 oncotree_2019_12_01        Stable OncoTree released on … FALSE   2019-12-01  </span>
-<span class="co">#&gt; 10 oncotree_2019_08_01        Stable OncoTree released on … FALSE   2019-08-01  </span>
-<span class="co">#&gt; # … with 18 more rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/get_versions.html">get_versions</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 28 × 4</span></span>
+<span><span class="co">#&gt;    oncotree_version           description                   visible release_date</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                      &lt;chr&gt;                         &lt;lgl&gt;   &lt;chr&gt;       </span></span>
+<span><span class="co">#&gt;  1 oncotree_development       Latest OncoTree under develo… TRUE    2021-11-04  </span></span>
+<span><span class="co">#&gt;  2 oncotree_candidate_release This version of the OncoTree… TRUE    2021-11-03  </span></span>
+<span><span class="co">#&gt;  3 oncotree_2021_11_02        Stable OncoTree released on … FALSE   2021-11-02  </span></span>
+<span><span class="co">#&gt;  4 oncotree_latest_stable     This is the latest approved … TRUE    2021-11-02  </span></span>
+<span><span class="co">#&gt;  5 oncotree_2020_10_01        Stable OncoTree released on … FALSE   2020-10-01  </span></span>
+<span><span class="co">#&gt;  6 oncotree_2020_04_01        Stable OncoTree released on … FALSE   2020-04-01  </span></span>
+<span><span class="co">#&gt;  7 oncotree_2020_02_06        Stable OncoTree released on … FALSE   2020-02-06  </span></span>
+<span><span class="co">#&gt;  8 oncotree_2020_02_01        Stable OncoTree released on … FALSE   2020-02-01  </span></span>
+<span><span class="co">#&gt;  9 oncotree_2019_12_01        Stable OncoTree released on … FALSE   2019-12-01  </span></span>
+<span><span class="co">#&gt; 10 oncotree_2019_08_01        Stable OncoTree released on … FALSE   2019-08-01  </span></span>
+<span><span class="co">#&gt; # … with 18 more rows</span></span></code></pre></div>
 <p>The function <code><a href="reference/get_tumor_types.html">get_tumor_types()</a></code> accepts a release version, allowing to get data for past versions of OncoTree:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/get_tumor_types.html">get_tumor_types</a></span><span class="op">(</span>oncotree_version <span class="op">=</span> <span class="st">'oncotree_2019_08_01'</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 863 × 13</span>
-<span class="co">#&gt;    oncotree_version    oncotree_code oncotree_name oncotree_main_t… tissue level</span>
-<span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;  &lt;int&gt;</span>
-<span class="co">#&gt;  1 oncotree_2019_08_01 MMB           Medullomyobl… Embryonal Tumor  CNS/B…     3</span>
-<span class="co">#&gt;  2 oncotree_2019_08_01 GCB           Germinal Cen… Mature B-Cell N… Lymph…     6</span>
-<span class="co">#&gt;  3 oncotree_2019_08_01 SBLU          Splenic B-Ce… Mature B-Cell N… Lymph…     5</span>
-<span class="co">#&gt;  4 oncotree_2019_08_01 OHNCA         Head and Nec… Head and Neck C… Head …     2</span>
-<span class="co">#&gt;  5 oncotree_2019_08_01 PAOS          Parosteal Os… Bone Cancer      Bone       3</span>
-<span class="co">#&gt;  6 oncotree_2019_08_01 TMDS          Therapy-Rela… Leukemia         Myelo…     5</span>
-<span class="co">#&gt;  7 oncotree_2019_08_01 ARMS          Alveolar Rha… Soft Tissue Sar… Soft …     3</span>
-<span class="co">#&gt;  8 oncotree_2019_08_01 SCST          Sex Cord Str… Sex Cord Stroma… Ovary…     2</span>
-<span class="co">#&gt;  9 oncotree_2019_08_01 ITLPDGI       Indolent T-C… Mature T and NK… Lymph…     5</span>
-<span class="co">#&gt; 10 oncotree_2019_08_01 MBC           Metaplastic … Breast Cancer    Breast     2</span>
-<span class="co">#&gt; # … with 853 more rows, and 7 more variables: parent &lt;chr&gt;, umls_code &lt;list&gt;,</span>
-<span class="co">#&gt; #   nci_code &lt;list&gt;, history &lt;list&gt;, revocations &lt;list&gt;, precursors &lt;list&gt;,</span>
-<span class="co">#&gt; #   color &lt;chr&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/get_tumor_types.html">get_tumor_types</a></span><span class="op">(</span>oncotree_version <span class="op">=</span> <span class="st">'oncotree_2019_08_01'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 863 × 13</span></span>
+<span><span class="co">#&gt;    oncotree_version    oncotree_code oncotree_name oncotree_main_t… tissue level</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;               &lt;chr&gt;         &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;  &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 oncotree_2019_08_01 MMB           Medullomyobl… Embryonal Tumor  CNS/B…     3</span></span>
+<span><span class="co">#&gt;  2 oncotree_2019_08_01 GCB           Germinal Cen… Mature B-Cell N… Lymph…     6</span></span>
+<span><span class="co">#&gt;  3 oncotree_2019_08_01 SBLU          Splenic B-Ce… Mature B-Cell N… Lymph…     5</span></span>
+<span><span class="co">#&gt;  4 oncotree_2019_08_01 OHNCA         Head and Nec… Head and Neck C… Head …     2</span></span>
+<span><span class="co">#&gt;  5 oncotree_2019_08_01 PAOS          Parosteal Os… Bone Cancer      Bone       3</span></span>
+<span><span class="co">#&gt;  6 oncotree_2019_08_01 TMDS          Therapy-Rela… Leukemia         Myelo…     5</span></span>
+<span><span class="co">#&gt;  7 oncotree_2019_08_01 ARMS          Alveolar Rha… Soft Tissue Sar… Soft …     3</span></span>
+<span><span class="co">#&gt;  8 oncotree_2019_08_01 SCST          Sex Cord Str… Sex Cord Stroma… Ovary…     2</span></span>
+<span><span class="co">#&gt;  9 oncotree_2019_08_01 ITLPDGI       Indolent T-C… Mature T and NK… Lymph…     5</span></span>
+<span><span class="co">#&gt; 10 oncotree_2019_08_01 MBC           Metaplastic … Breast Cancer    Breast     2</span></span>
+<span><span class="co">#&gt; # … with 853 more rows, and 7 more variables: parent &lt;chr&gt;, umls_code &lt;list&gt;,</span></span>
+<span><span class="co">#&gt; #   nci_code &lt;list&gt;, history &lt;list&gt;, revocations &lt;list&gt;, precursors &lt;list&gt;,</span></span>
+<span><span class="co">#&gt; #   color &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="mapping-of-tumor-type-codes">Mapping of tumor type codes<a class="anchor" aria-label="anchor" href="#mapping-of-tumor-type-codes"></a>
@@ -218,38 +220,38 @@
 <h3 id="from-and-to-ncit">From and to NCIt<a class="anchor" aria-label="anchor" href="#from-and-to-ncit"></a>
 </h3>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/oncotree_to_nci.html">oncotree_to_nci</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MMB'</span>, <span class="st">'PAOS'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 × 2</span>
-<span class="co">#&gt;   oncotree_code nci_code</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span>
-<span class="co">#&gt; 1 MMB           C3706   </span>
-<span class="co">#&gt; 2 PAOS          C8969</span>
-
-<span class="fu"><a href="reference/nci_to_oncotree.html">nci_to_oncotree</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'C3706'</span>, <span class="st">'C8969'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 × 2</span>
-<span class="co">#&gt;   nci_code oncotree_code</span>
-<span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        </span>
-<span class="co">#&gt; 1 C3706    MMB          </span>
-<span class="co">#&gt; 2 C8969    PAOS</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/oncotree_to_nci.html">oncotree_to_nci</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MMB'</span>, <span class="st">'PAOS'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code nci_code</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span></span>
+<span><span class="co">#&gt; 1 MMB           C3706   </span></span>
+<span><span class="co">#&gt; 2 PAOS          C8969</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/nci_to_oncotree.html">nci_to_oncotree</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'C3706'</span>, <span class="st">'C8969'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span><span class="co">#&gt;   nci_code oncotree_code</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        </span></span>
+<span><span class="co">#&gt; 1 C3706    MMB          </span></span>
+<span><span class="co">#&gt; 2 C8969    PAOS</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="from-and-to-umls">From and to UMLS<a class="anchor" aria-label="anchor" href="#from-and-to-umls"></a>
 </h3>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/oncotree_to_umls.html">oncotree_to_umls</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MMB'</span>, <span class="st">'PAOS'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 × 2</span>
-<span class="co">#&gt;   oncotree_code umls_code</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;    </span>
-<span class="co">#&gt; 1 MMB           C0205833 </span>
-<span class="co">#&gt; 2 PAOS          C0206642</span>
-
-<span class="fu"><a href="reference/umls_to_oncotree.html">umls_to_oncotree</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'C0205833'</span>, <span class="st">'C0206642'</span>, <span class="st">'C1334708'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 3 × 2</span>
-<span class="co">#&gt;   umls_code oncotree_code</span>
-<span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;        </span>
-<span class="co">#&gt; 1 C0205833  MMB          </span>
-<span class="co">#&gt; 2 C0206642  PAOS         </span>
-<span class="co">#&gt; 3 C1334708  MBC</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/oncotree_to_umls.html">oncotree_to_umls</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'MMB'</span>, <span class="st">'PAOS'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code umls_code</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;    </span></span>
+<span><span class="co">#&gt; 1 MMB           C0205833 </span></span>
+<span><span class="co">#&gt; 2 PAOS          C0206642</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/umls_to_oncotree.html">umls_to_oncotree</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'C0205833'</span>, <span class="st">'C0206642'</span>, <span class="st">'C1334708'</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span><span class="co">#&gt;   umls_code oncotree_code</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;        </span></span>
+<span><span class="co">#&gt; 1 C0205833  MMB          </span></span>
+<span><span class="co">#&gt; 2 C0206642  PAOS         </span></span>
+<span><span class="co">#&gt; 3 C1334708  MBC</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="other-mappings">Other mappings<a class="anchor" aria-label="anchor" href="#other-mappings"></a>
@@ -258,95 +260,95 @@
 <p>In OncoTree’s discussion forum the developers have warned that this data can’t be expected to be neither accurate nor complete. However, it might still be useful for some users, and hence we also provide access to these mappings with the function <code><a href="reference/map_ontology_code.html">map_ontology_code()</a></code>.</p>
 <p>Here are some usage examples <code><a href="reference/map_ontology_code.html">map_ontology_code()</a></code>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Simple example</span>
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'MMB'</span>, from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 × 2</span>
-<span class="co">#&gt;   oncotree_code nci_code</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span>
-<span class="co">#&gt; 1 MMB           C3706</span>
-
-<span class="co"># Omit the `code` argument to get all possible mappings. Note that</span>
-<span class="co"># one-to-many mappings will generate more than one row per `from` code.</span>
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 855 × 2</span>
-<span class="co">#&gt;    oncotree_code nci_code</span>
-<span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;   </span>
-<span class="co">#&gt;  1 MMB           C3706   </span>
-<span class="co">#&gt;  2 AIS           C4123   </span>
-<span class="co">#&gt;  3 AASTR         C9477   </span>
-<span class="co">#&gt;  4 FL            C3209   </span>
-<span class="co">#&gt;  5 VIMT          C4286   </span>
-<span class="co">#&gt;  6 KIDNEY        C12415  </span>
-<span class="co">#&gt;  7 MDEP          C4327   </span>
-<span class="co">#&gt;  8 PAOS          C8969   </span>
-<span class="co">#&gt;  9 PRSCC         C6766   </span>
-<span class="co">#&gt; 10 DSTAD         C9159   </span>
-<span class="co">#&gt; # … with 845 more rows</span>
-
-<span class="co"># Some mappings are one-to-many, e.g. "SRCCR", which means repeated rows for</span>
-<span class="co"># the same input code.</span>
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'SRCCR'</span>, from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 × 2</span>
-<span class="co">#&gt;   oncotree_code nci_code</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span>
-<span class="co">#&gt; 1 SRCCR         C9168   </span>
-<span class="co">#&gt; 2 SRCCR         C7967</span>
-
-<span class="co"># Using the `collapse` argument to "collapse" one-to-many mappings makes sure</span>
-<span class="co"># that the output has as many rows as the `from` vector.</span>
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'SRCCR'</span>,
-                  from <span class="op">=</span> <span class="st">'oncotree_code'</span>,
-                  to <span class="op">=</span> <span class="st">'nci_code'</span>,
-                  collapse <span class="op">=</span> <span class="va">toString</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 × 2</span>
-<span class="co">#&gt;   oncotree_code nci_code    </span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;       </span>
-<span class="co">#&gt; 1 SRCCR         C9168, C7967</span>
-
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'SRCCR'</span>,
-                  from <span class="op">=</span> <span class="st">'oncotree_code'</span>,
-                  to <span class="op">=</span> <span class="st">'nci_code'</span>,
-                  collapse <span class="op">=</span> <span class="va">list</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 × 2</span>
-<span class="co">#&gt;   oncotree_code nci_code </span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;list&gt;   </span>
-<span class="co">#&gt; 1 SRCCR         &lt;chr [2]&gt;</span>
-
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>
-  code <span class="op">=</span> <span class="st">'SRCCR'</span>,
-  from <span class="op">=</span> <span class="st">'oncotree_code'</span>,
-  to <span class="op">=</span> <span class="st">'nci_code'</span>,
-  collapse <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">x</span>, collapse <span class="op">=</span> <span class="st">' '</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 × 2</span>
-<span class="co">#&gt;   oncotree_code nci_code   </span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;      </span>
-<span class="co">#&gt; 1 SRCCR         C9168 C7967</span>
-
-<span class="co"># `map_ontology_code()` is vectorized over `code`</span>
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'AASTR'</span>, <span class="st">'MDEP'</span><span class="op">)</span>, from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 × 2</span>
-<span class="co">#&gt;   oncotree_code nci_code</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span>
-<span class="co">#&gt; 1 AASTR         C9477   </span>
-<span class="co">#&gt; 2 MDEP          C4327</span>
-
-<span class="co"># Map from ICDO topography to ICDO morphology codes</span>
-<span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'C72.9'</span>, from <span class="op">=</span> <span class="st">'icdo_topography_code'</span>, to <span class="op">=</span> <span class="st">'icdo_morphology_code'</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 65 × 2</span>
-<span class="co">#&gt;    icdo_topography_code icdo_morphology_code</span>
-<span class="co">#&gt;    &lt;chr&gt;                &lt;chr&gt;               </span>
-<span class="co">#&gt;  1 C72.9                9401/3              </span>
-<span class="co">#&gt;  2 C72.9                9501/3              </span>
-<span class="co">#&gt;  3 C72.9                9390/1              </span>
-<span class="co">#&gt;  4 C72.9                8000/3              </span>
-<span class="co">#&gt;  5 C72.9                9424/3              </span>
-<span class="co">#&gt;  6 C72.9                9391/3              </span>
-<span class="co">#&gt;  7 C72.9                9425/3              </span>
-<span class="co">#&gt;  8 C72.9                9383/1              </span>
-<span class="co">#&gt;  9 C72.9                9100/3              </span>
-<span class="co">#&gt; 10 C72.9                9522/3              </span>
-<span class="co">#&gt; # … with 55 more rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Simple example</span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'MMB'</span>, from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code nci_code</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span></span>
+<span><span class="co">#&gt; 1 MMB           C3706</span></span>
+<span></span>
+<span><span class="co"># Omit the `code` argument to get all possible mappings. Note that</span></span>
+<span><span class="co"># one-to-many mappings will generate more than one row per `from` code.</span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 855 × 2</span></span>
+<span><span class="co">#&gt;    oncotree_code nci_code</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;   </span></span>
+<span><span class="co">#&gt;  1 MMB           C3706   </span></span>
+<span><span class="co">#&gt;  2 AIS           C4123   </span></span>
+<span><span class="co">#&gt;  3 AASTR         C9477   </span></span>
+<span><span class="co">#&gt;  4 FL            C3209   </span></span>
+<span><span class="co">#&gt;  5 VIMT          C4286   </span></span>
+<span><span class="co">#&gt;  6 KIDNEY        C12415  </span></span>
+<span><span class="co">#&gt;  7 MDEP          C4327   </span></span>
+<span><span class="co">#&gt;  8 PAOS          C8969   </span></span>
+<span><span class="co">#&gt;  9 PRSCC         C6766   </span></span>
+<span><span class="co">#&gt; 10 DSTAD         C9159   </span></span>
+<span><span class="co">#&gt; # … with 845 more rows</span></span>
+<span></span>
+<span><span class="co"># Some mappings are one-to-many, e.g. "SRCCR", which means repeated rows for</span></span>
+<span><span class="co"># the same input code.</span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'SRCCR'</span>, from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code nci_code</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span></span>
+<span><span class="co">#&gt; 1 SRCCR         C9168   </span></span>
+<span><span class="co">#&gt; 2 SRCCR         C7967</span></span>
+<span></span>
+<span><span class="co"># Using the `collapse` argument to "collapse" one-to-many mappings makes sure</span></span>
+<span><span class="co"># that the output has as many rows as the `from` vector.</span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'SRCCR'</span>,</span>
+<span>                  from <span class="op">=</span> <span class="st">'oncotree_code'</span>,</span>
+<span>                  to <span class="op">=</span> <span class="st">'nci_code'</span>,</span>
+<span>                  collapse <span class="op">=</span> <span class="va">toString</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code nci_code    </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;       </span></span>
+<span><span class="co">#&gt; 1 SRCCR         C9168, C7967</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'SRCCR'</span>,</span>
+<span>                  from <span class="op">=</span> <span class="st">'oncotree_code'</span>,</span>
+<span>                  to <span class="op">=</span> <span class="st">'nci_code'</span>,</span>
+<span>                  collapse <span class="op">=</span> <span class="va">list</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code nci_code </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;list&gt;   </span></span>
+<span><span class="co">#&gt; 1 SRCCR         &lt;chr [2]&gt;</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span></span>
+<span>  code <span class="op">=</span> <span class="st">'SRCCR'</span>,</span>
+<span>  from <span class="op">=</span> <span class="st">'oncotree_code'</span>,</span>
+<span>  to <span class="op">=</span> <span class="st">'nci_code'</span>,</span>
+<span>  collapse <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">x</span>, collapse <span class="op">=</span> <span class="st">' '</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code nci_code   </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;      </span></span>
+<span><span class="co">#&gt; 1 SRCCR         C9168 C7967</span></span>
+<span></span>
+<span><span class="co"># `map_ontology_code()` is vectorized over `code`</span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'AASTR'</span>, <span class="st">'MDEP'</span><span class="op">)</span>, from <span class="op">=</span> <span class="st">'oncotree_code'</span>, to <span class="op">=</span> <span class="st">'nci_code'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span><span class="co">#&gt;   oncotree_code nci_code</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;   </span></span>
+<span><span class="co">#&gt; 1 AASTR         C9477   </span></span>
+<span><span class="co">#&gt; 2 MDEP          C4327</span></span>
+<span></span>
+<span><span class="co"># Map from ICDO topography to ICDO morphology codes</span></span>
+<span><span class="fu"><a href="reference/map_ontology_code.html">map_ontology_code</a></span><span class="op">(</span>code <span class="op">=</span> <span class="st">'C72.9'</span>, from <span class="op">=</span> <span class="st">'icdo_topography_code'</span>, to <span class="op">=</span> <span class="st">'icdo_morphology_code'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 65 × 2</span></span>
+<span><span class="co">#&gt;    icdo_topography_code icdo_morphology_code</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                &lt;chr&gt;               </span></span>
+<span><span class="co">#&gt;  1 C72.9                9401/3              </span></span>
+<span><span class="co">#&gt;  2 C72.9                9501/3              </span></span>
+<span><span class="co">#&gt;  3 C72.9                9390/1              </span></span>
+<span><span class="co">#&gt;  4 C72.9                8000/3              </span></span>
+<span><span class="co">#&gt;  5 C72.9                9424/3              </span></span>
+<span><span class="co">#&gt;  6 C72.9                9391/3              </span></span>
+<span><span class="co">#&gt;  7 C72.9                9425/3              </span></span>
+<span><span class="co">#&gt;  8 C72.9                9383/1              </span></span>
+<span><span class="co">#&gt;  9 C72.9                9100/3              </span></span>
+<span><span class="co">#&gt; 10 C72.9                9522/3              </span></span>
+<span><span class="co">#&gt; # … with 55 more rows</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -406,7 +408,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>

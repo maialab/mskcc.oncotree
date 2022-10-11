@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 2.0.2
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-04-21T19:34Z
+last_built: 2022-10-11T17:58Z
 urls:
   reference: http://maialab.org/mskcc.oncotree/reference
   article: http://maialab.org/mskcc.oncotree/articles
