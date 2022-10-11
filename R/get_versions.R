@@ -27,6 +27,8 @@ get_versions_ <- function() {
 #' @md
 #'
 #' @examples
-#' try(get_versions())
+#' \dontrun{
+#' get_versions()
+#' }
 #' @export
 get_versions <- memoise::memoise(get_versions_)

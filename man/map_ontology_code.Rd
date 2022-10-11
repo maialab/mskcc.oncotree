@@ -39,6 +39,7 @@ broader. The file used by \code{map_ontology_code()} can be directly imported in
 R using the function \code{read_ontology_mappings()}.
 }
 \examples{
+\dontrun{
 # Omit the `code` argument to get all possible mappings. Note that
 # one-to-many mappings will generate more than one row per `from` code.
 map_ontology_code(from = 'oncotree_code', to = 'nci_code')
@@ -82,7 +83,7 @@ map_ontology_code(
   from = 'icdo_topography_code',
   to = 'icdo_morphology_code'
   )
-
+}
 }
 \seealso{
 \code{\link[=oncotree_to_nci]{oncotree_to_nci()}}, \code{\link[=nci_to_oncotree]{nci_to_oncotree()}}, \code{\link[=oncotree_to_umls]{oncotree_to_umls()}} and \code{\link[=umls_to_oncotree]{umls_to_oncotree()}}.

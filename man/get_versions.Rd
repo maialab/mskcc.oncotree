@@ -19,5 +19,7 @@ A \link[tibble:tibble-package]{tibble} of four variables:
 Get OncoTree versions
 }
 \examples{
-try(get_versions())
+\dontrun{
+get_versions()
+}
 }

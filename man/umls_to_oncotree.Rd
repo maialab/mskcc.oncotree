@@ -24,6 +24,7 @@ A \link[tibble:tibble-package]{tibble} of two variables: \code{umls_code} and \c
 This function maps Unified Medical Language System (UMLS) codes to OncoTree codes.
 }
 \examples{
+\dontrun{
 # Leave `umls_code` empty to return mappings for all UMLS codes
 umls_to_oncotree()
 
@@ -34,5 +35,5 @@ umls_to_oncotree(umls_code = c('C0206642', 'C0600113', 'C0279654', 'C1707436'))
 # not a list-column. One-to-many mappings will result in more than row with
 # `oncotree_code` values repeated.
 umls_to_oncotree(umls_code = c('C0206642', 'C0600113', 'C0279654', 'C1707436'), expand = TRUE)
-
+}
 }

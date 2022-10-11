@@ -29,6 +29,7 @@
 #' @seealso [oncotree_to_nci()], [nci_to_oncotree()], [oncotree_to_umls()] and [umls_to_oncotree()].
 #'
 #' @examples
+#' \dontrun{
 #' # Omit the `code` argument to get all possible mappings. Note that
 #' # one-to-many mappings will generate more than one row per `from` code.
 #' map_ontology_code(from = 'oncotree_code', to = 'nci_code')
@@ -72,7 +73,7 @@
 #'   from = 'icdo_topography_code',
 #'   to = 'icdo_morphology_code'
 #'   )
-#'
+#' }
 #' @md
 #' @importFrom rlang :=
 #' @export

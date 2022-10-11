@@ -24,6 +24,7 @@ A \link[tibble:tibble-package]{tibble} of two variables: \code{nci_code} and \co
 This function maps National Cancer Institute Thesaurus (NCIt) codes to OncoTree codes.
 }
 \examples{
+\dontrun{
 # Leave `nci_code` empty to return mappings for all NCI codes
 nci_to_oncotree()
 
@@ -35,5 +36,5 @@ nci_to_oncotree(nci_code = c('C8969', 'C4862', 'C9168', 'C7967'))
 # with `oncotree_code` values repeated.
 nci_to_oncotree(nci_code = c('C8969', 'C4862', 'C9168', 'C7967'), expand =
 TRUE)
-
+}
 }

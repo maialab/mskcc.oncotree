@@ -10,6 +10,7 @@
 #' @return A [tibble][tibble::tibble-package] of two variables: `oncotree_code` and `nci_code`.
 #' @md
 #' @examples
+#' \dontrun{
 #' # Leave `oncotree_code` empty to return mappings for all OncoTree codes
 #' oncotree_to_nci()
 #'
@@ -25,7 +26,7 @@
 #' # Use `keep_empty` to drop or keep one-to-none mappings
 #' oncotree_to_nci(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'), expand
 #' = TRUE, keep_empty = FALSE)
-#'
+#' }
 #' @importFrom rlang .data
 #' @export
 oncotree_to_nci <-
@@ -64,6 +65,7 @@ oncotree_to_nci <-
 #' @md
 #'
 #' @examples
+#' \dontrun{
 #' # Leave `nci_code` empty to return mappings for all NCI codes
 #' nci_to_oncotree()
 #'
@@ -75,7 +77,7 @@ oncotree_to_nci <-
 #' # with `oncotree_code` values repeated.
 #' nci_to_oncotree(nci_code = c('C8969', 'C4862', 'C9168', 'C7967'), expand =
 #' TRUE)
-#'
+#' }
 #' @importFrom rlang .data
 #' @export
 nci_to_oncotree <-

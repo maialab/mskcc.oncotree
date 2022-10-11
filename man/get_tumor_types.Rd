@@ -31,6 +31,8 @@ A \link[tibble:tibble-package]{tibble} of 13 variables:
 Get tumor types according to OncoTree's ontology.
 }
 \examples{
+\dontrun{
 get_tumor_types()
+}
 
 }

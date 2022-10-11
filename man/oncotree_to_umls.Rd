@@ -27,6 +27,7 @@ A \link[tibble:tibble-package]{tibble} of two variables: \code{oncotree_code} an
 This function maps OncoTree codes to Unified Medical Language System (UMLS) codes.
 }
 \examples{
+\dontrun{
 # Leave `oncotree_code` empty to return mappings for all OncoTree codes
 oncotree_to_umls()
 
@@ -42,5 +43,5 @@ oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'),
 # Use `keep_empty` to drop or keep one-to-none mappings
 oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'),
   expand = TRUE, keep_empty = FALSE)
-
+}
 }

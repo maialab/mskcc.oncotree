@@ -33,6 +33,7 @@ Reads `ontology_mappings.txt` from OncoTree's GitHub repository and returns
 its contents as a tibble.
 }
 \examples{
+\dontrun{
 # Import ontology_mappings.txt as tibble
 read_ontology_mappings()
 
@@ -41,6 +42,6 @@ read_ontology_mappings(fix_names = FALSE)
 
 # Keep multi-value columns as originally, i.e. as comma-separated values
 read_ontology_mappings(list_columns = FALSE)
-
+}
 }
 \keyword{internal}

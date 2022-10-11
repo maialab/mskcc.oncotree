@@ -6,7 +6,7 @@
 \alias{mskcc.oncotree-package}
 \title{mskcc.oncotree: Interface to the 'OncoTree' API}
 \description{
-Programmatic access to 'OncoTree' API <http://oncotree.mskcc.org/>. Get access to tumor main types, identifiers and utility routines to map across to other tumor classification systems.
+Programmatic access to 'OncoTree' API \url{http://oncotree.mskcc.org/}. Get access to tumor main types, identifiers and utility routines to map across to other tumor classification systems.
 }
 \seealso{
 Useful links:

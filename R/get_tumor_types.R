@@ -132,7 +132,9 @@ get_tumor_types_ <- function(oncotree_version = 'oncotree_latest_stable') {
 #' \item{`color`}{Color associated with the tumor type.}
 #' }
 #' @examples
+#' \dontrun{
 #' get_tumor_types()
+#' }
 #'
 #' @md
 #' @importFrom rlang .data

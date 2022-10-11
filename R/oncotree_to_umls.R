@@ -11,6 +11,7 @@
 #' @md
 #'
 #' @examples
+#' \dontrun{
 #' # Leave `oncotree_code` empty to return mappings for all OncoTree codes
 #' oncotree_to_umls()
 #'
@@ -26,7 +27,7 @@
 #' # Use `keep_empty` to drop or keep one-to-none mappings
 #' oncotree_to_umls(oncotree_code = c('PAOS', 'SCST', 'ITLPDGI', 'SRCCR'),
 #'   expand = TRUE, keep_empty = FALSE)
-#'
+#' }
 #' @importFrom rlang .data
 #' @export
 oncotree_to_umls <-
@@ -67,6 +68,7 @@ oncotree_to_umls <-
 #' @md
 #'
 #' @examples
+#' \dontrun{
 #' # Leave `umls_code` empty to return mappings for all UMLS codes
 #' umls_to_oncotree()
 #'
@@ -77,7 +79,7 @@ oncotree_to_umls <-
 #' # not a list-column. One-to-many mappings will result in more than row with
 #' # `oncotree_code` values repeated.
 #' umls_to_oncotree(umls_code = c('C0206642', 'C0600113', 'C0279654', 'C1707436'), expand = TRUE)
-#'
+#' }
 #' @importFrom rlang .data
 #' @export
 umls_to_oncotree <-

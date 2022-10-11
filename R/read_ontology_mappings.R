@@ -48,6 +48,7 @@ read_ontology_mappings_ <-
 #' }
 #'
 #' @examples
+#' \dontrun{
 #' # Import ontology_mappings.txt as tibble
 #' read_ontology_mappings()
 #'
@@ -56,7 +57,7 @@ read_ontology_mappings_ <-
 #'
 #' # Keep multi-value columns as originally, i.e. as comma-separated values
 #' read_ontology_mappings(list_columns = FALSE)
-#'
+#' }
 #' @importFrom rlang .data
 #' @keywords internal
 #' @export
